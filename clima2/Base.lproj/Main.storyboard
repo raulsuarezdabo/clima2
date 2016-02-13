@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="clima2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,55 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nOm-Lz-aZH">
+                                <rect key="frame" x="20" y="364" width="560" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="yMS-NV-Eim"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="R2X-6e-KdW"/>
+                                </connections>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" layoutMarginsFollowReadableWidth="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBP-xt-BcA">
+                                <rect key="frame" x="0.0" y="57" width="600" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="I7e-97-f9M"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f82-Md-nqM">
+                                <rect key="frame" x="0.0" y="95" width="600" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="QWo-PR-YWI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FBP-xt-BcA" firstAttribute="leading" secondItem="f82-Md-nqM" secondAttribute="leading" id="4AD-ap-JKv"/>
+                            <constraint firstItem="nOm-Lz-aZH" firstAttribute="centerX" secondItem="f82-Md-nqM" secondAttribute="centerX" id="ChF-IL-U2x"/>
+                            <constraint firstItem="nOm-Lz-aZH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Fmf-Fu-qfn"/>
+                            <constraint firstItem="FBP-xt-BcA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HC8-ZV-LaG"/>
+                            <constraint firstItem="f82-Md-nqM" firstAttribute="top" secondItem="FBP-xt-BcA" secondAttribute="bottom" constant="8" symbolic="YES" id="J3k-Ur-USJ"/>
+                            <constraint firstAttribute="bottom" secondItem="nOm-Lz-aZH" secondAttribute="bottom" constant="20" symbolic="YES" id="ZIb-Bl-nTZ"/>
+                            <constraint firstItem="FBP-xt-BcA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="37" id="mM4-II-iuW"/>
+                            <constraint firstItem="FBP-xt-BcA" firstAttribute="trailing" secondItem="f82-Md-nqM" secondAttribute="trailing" id="na2-Ed-vfv"/>
+                            <constraint firstItem="f82-Md-nqM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oQR-lm-Zm1"/>
+                            <constraint firstItem="f82-Md-nqM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="tbI-Gm-r7J"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="ciudad" destination="FBP-xt-BcA" id="AVJ-Ru-Zle"/>
+                        <outlet property="temperatura" destination="f82-Md-nqM" id="OC1-UH-Wkv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="380" y="337"/>
         </scene>
     </scenes>
 </document>
